@@ -1,0 +1,88 @@
+---
+title: "Monitor a single radio broadcast channel"
+author: "Spencer Graves"
+date: 2018-10-12
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reading a radio tuner 
+
+I want to create *.wav files with names like "sourceYYYY_MM_DDTHH_MM.wav", where:  
+
+* source = the name of an audio input, e.g., connected to the stereo mini phone jack for "audio in", which I can confirm the computer is digitizing by listening to something connected to "audio out" from that computer.  In my application, source = "KKFI" = the name of an FM radio station selected by a radio tuner.  If "audio in" port(s) do not work for this, try a USB Sound Adapter.  
+
+* YYYY_MM_DDTHH_MM = the local [date and time of the start of that file following ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).  At least initially, these will be 10 minute files staring on natural 10-minute breaks per the clock on the computer, which presumably is synced with [the official US time from the National Institute of Standards and Technology in Boulder, CO.](https://www.time.gov/) (I just confirmed that this time matches on both my Windows 7 desktop computer and my macOS 10.14 notebook.)
+
+* ".wav" = the standard uncompressed "Waveform Audio File Format".  
+
+At 10 minutes per file, this would create 6 files per hour and 144 such files in a 24-hour day.  The first such file created when the code starts will be short, because it will be set to end at exactly a 10-minute mark.  The software will be written to store a maximum of, say, N = 1440 such files, deleting the oldest when the max would otherwise be exceeded.  
+
+I failed to find anything in R that could read an audio stream like this in real time.  
+
+Fortunately, a post to Stack Overflow discussed [reading input sound signals using python](https://stackoverflow.com/questions/35344649/reading-input-sound-signal-using-python). This suggested the ["pyaudio"](https://people.csail.mit.edu/hubert/pyaudio/) package, which I installed from a Command Prompt as follows:  
+
+> python -m pip install pyaudio
+
+This Stack Overflow discussion included the following:  
+
+```{python pyaudio1}
+"""PyAudio example: Record a few seconds of audio and save to a WAVE file."""
+
+import pyaudio
+import wave
+
+CHUNK = 1024
+FORMAT = pyaudio.paInt16
+CHANNELS = 2
+RATE = 44100
+RECORD_SECONDS = 5
+WAVE_OUTPUT_FILENAME = "output.wav"
+
+p = pyaudio.PyAudio()
+
+stream = p.open(format=FORMAT,
+                channels=CHANNELS,
+                rate=RATE,
+                input=True,
+                frames_per_buffer=CHUNK)
+
+print("* recording")
+
+frames = []
+
+for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+    data = stream.read(CHUNK)
+    frames.append(data)
+
+print("* done recording")
+
+stream.stop_stream()
+stream.close()
+p.terminate()
+
+wf = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
+wf.setnchannels(CHANNELS)
+wf.setsampwidth(p.get_sample_size(FORMAT))
+wf.setframerate(RATE)
+wf.writeframes(b''.join(frames))
+wf.close()
+```
+
+The "output.wav" file is 861 KB for 5 seconds of audio. 
+
+```{r HDreqd}
+(KBperMin <- 12*861)
+```
+
+So, a minute would require roughly 10 MB.  An hour would be roughly 600 MB, and a day would be:  
+
+```{r GBreqd}
+(KBperDay <- 24*60*KBperMin)/1e6
+```
+
+This means we need roughly 15 GB to store the audio from one day in this format.  Ten days would require roughly 150 GB.  I have roughly three times that much free space on the computer I plan to use for this.  I can do this. Later I may want to store only 5 days or 3 like this depending on how automated we might get with doing various kinds of spectral analysis on the fly and storing those summaries separate from the full detail in the "*.wav" format.  
+
