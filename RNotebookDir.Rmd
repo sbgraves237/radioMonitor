@@ -1,0 +1,20 @@
+---
+title: "R Notebook with dir()"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook obtaining "dir()" and tabling the first character.  
+
+NOTE:  The "editor toolbar" (on the line below the filename) contains "Preview" in an "R Markdown Notebook" and "Knit" in an "R Markdown Document".  
+
+First get the directory:  
+```{r dir}
+(Dir <- dir())
+```
+
+Now table the first character:  
+```{r sort}
+table(substring(Dir, 1, 1))
+```
+Done.  
+```
