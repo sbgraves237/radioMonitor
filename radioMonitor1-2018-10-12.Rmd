@@ -40,7 +40,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
 RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "output.wav"
+WAVE_OUTPUT_FILENAME = "KKFI2018-10-12T13_08-5sec.wav"
 
 p = pyaudio.PyAudio()
 
