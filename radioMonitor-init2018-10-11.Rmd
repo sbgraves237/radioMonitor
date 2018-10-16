@@ -27,8 +27,11 @@ Fortunately, a post to Stack Overflow discussed [reading input sound signals usi
 
 > python -m pip install pyaudio
 
-This Stack Overflow discussion included the following:  
+This Stack Overflow discussion included Python code, which I will run while timig in R as follows:  
 
+```{r startTimer}
+startPyTime <- proc.time()
+```
 ```{python pyaudio1}
 """PyAudio example: Record a few seconds of audio and save to a WAVE file."""
 
@@ -40,7 +43,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 2
 RATE = 44100
 RECORD_SECONDS = 5
-WAVE_OUTPUT_FILENAME = "KKFI2018-10-12t13_16-5sec.wav"
+WAVE_OUTPUT_FILENAME = "KKFI2018-10-12t13_16a-5sec.wav"
 
 p = pyaudio.PyAudio()
 
@@ -71,6 +74,18 @@ wf.setframerate(RATE)
 wf.writeframes(b''.join(frames))
 wf.close()
 ```
+```{r etPy5}
+(etPy5 <- proc.time()-startPyTime)
+```
+
+To run these three code snippets at once, I seem to either need to click 
+* "knit" on the editor toolbar right below the filenames near the top of the page or 
+* the "run all previous chunks" butten second from the right in the following empty R code chunk:  
+
+```{r empty}
+```
+
+Using the "run all previous chunks" button took on one case 0.05 seconds user time plus 0.03 seconds system time with total elapsed time of roughly 6 seconds.  Using the "Knit" button took substantially more time in all three categories.  
 
 The "output.wav" file is 861 KB for 5 seconds of audio. 
 
