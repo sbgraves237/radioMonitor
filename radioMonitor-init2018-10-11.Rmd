@@ -85,7 +85,10 @@ To run these three code snippets at once, I seem to either need to click
 ```{r empty}
 ```
 
-Using the "run all previous chunks" button took on one case 0.05 seconds user time plus 0.03 seconds system time with total elapsed time of roughly 6 seconds.  Using the "Knit" button took substantially more time in all three categories.  
+Using the "run all previous chunks" button took on one case 0.05 seconds user time plus 0.03 seconds system time with total elapsed time of roughly 6 seconds.  Using the "Knit" button took substantially more time in all three categories.  This was on a 
+Windows 7 machine purchased p
+
+However, the key point for our purposes is that this code should be able to run in the background on 
 
 The "output.wav" file is 861 KB for 5 seconds of audio. 
 
