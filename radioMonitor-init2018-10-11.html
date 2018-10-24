@@ -143,7 +143,8 @@ $(document).ready(function () {
 <blockquote>
 <p>python -m pip install pyaudio</p>
 </blockquote>
-<p>This Stack Overflow discussion included the following:</p>
+<p>This Stack Overflow discussion included Python code, which I will run while timig in R as follows:</p>
+<pre class="r"><code>startPyTime &lt;- proc.time()</code></pre>
 <pre class="python"><code>&quot;&quot;&quot;PyAudio example: Record a few seconds of audio and save to a WAVE file.&quot;&quot;&quot;
 import pyaudio
 import wave
@@ -176,6 +177,9 @@ wf.setsampwidth(p.get_sample_size(FORMAT))
 wf.setframerate(RATE)
 wf.writeframes(b''.join(frames))
 wf.close()</code></pre>
+<pre class="r"><code>(etPy5 &lt;- proc.time()-startPyTime)</code></pre>
+<pre><code>##    user  system elapsed 
+##    1.87    0.44   27.96</code></pre>
 <p>The “output.wav” file is 861 KB for 5 seconds of audio.</p>
 <pre class="r"><code>(KBperMin &lt;- 12*861)</code></pre>
 <pre><code>## [1] 10332</code></pre>
