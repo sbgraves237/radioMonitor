@@ -13,6 +13,24 @@ PLAN:
 3.  radioMonitor1.py 
 = a [Python package](https://packaging.python.org/tutorials/packaging-projects/) containing a function to create a series of *.wav files of a specified length (10 minutes in production) with name indicating the audio source (90_1FM for KKFI) and the time stamp started and ending on even multiples of the specified length.  Production and testing will be documented further in an R Markdown Document "radioMonitor1.Rmd".  
 
+NOTE:  This will likely be implemented in a series of upgrades as outlined in "radioMonitor/README.md" in the "radioMonitor" subfolder of this project folder.  The initial step would be radioMonitor0_1.Rmd that calls  a function radioMonitor0_1.py that creates a single *.wav file.  This would be followed by 0_2, 0_3, 0_4, leading to 1_0, which would create daily folders of individual files, then by 2_0, 2_1, and 2_2 that would create similar folders with files of input, output, and difference plus summary folders of questionable incidents with Fast Fourier Transforms of the signal before, during and after an apparent drop out.  
+
+* 0_1.  Record only one *.wav file, then stop.  
+
+* 0_2.  From the start time, compute the end time as the next integer multiple of RECORD_SECONDS, construct a file name containing the start time, then record to the end time, then stop.  
+
+* 0_3.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_._2.  
+
+* 0_4.  Modify the infinite loop of 0_3 to create a file folder for each day and store the *.wav files for that day in that folder.  
+
+* 1_0.  Release the version from 0_4 after testing.  
+
+* 2_0.  Modify version 1_0 to record two sources: source and broadcasted.    
+
+* 2_1.  Modify version 2.0 to determine the time synchronization, then compute the difference and write three files:  source, broadcasted and difference.    
+
+* 2_2.  Modify version 2.1 to identify problems in the difference.  
+ 
 4.  Start regular use of radioMonitor1.py, reprting to KKFI's EFT Committee, inviting their suggestions on how to use this and how to enhance it:  First, if we can identify specific times of specific skips, we can then find the corresponding files, read them into Audacity, see what the wave form looks like at the specific time. We can document that in greater detail, report it to the EFT Committee and Una Nowling.  Mike Murphy can share the result with KKFI's radio engineers, Ed Treese and Mike Rogers and get their input regarding the kind of spectrum they would like to see from such events.  I may also share it with a local Python Meetup plus "python-list@python.org" for help with things I don't yet know how to do plus "r-help@r-project.org" to search for a way to do this in R that I may have overlooked.  If any work in this area is done in R or Python, document that in an R Markdown Document with a name like "radioMonitor1a*.Rmd".
 
 5.  radioMonitor1m.py 
