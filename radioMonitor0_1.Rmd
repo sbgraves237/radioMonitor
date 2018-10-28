@@ -1,7 +1,7 @@
 ---
-title: "Monitor a single radio broadcast channel"
+title: "Function to produce a single file from audio in"
 author: "Spencer Graves"
-date: 2018-10-24
+date: 2018-10-28
 output: html_document
 ---
 
@@ -27,13 +27,24 @@ Fortunately, a post to Stack Overflow discussed [reading input sound signals usi
 
 > python -m pip install pyaudio
 
-This Stack Overflow discussion included the following:  
+This Stack Overflow discussion included code in function "radioMonitor0_1" in "radioPackage\radioPy".
+
+Let's first check the current working directory:  
+
+```{python dir}
+import os
+cwd = os.getcwd()
+print(cwd)
+print(cwd.split('\\'))
+```
+
 
 ```{r startTimer}
 startPyTime <- proc.time()
 ```
 ```{python pyaudio1}
-radioMonitor1()
+from radioPackage.radioPy import radioMonitor0_1 
+radioMonitor0_1()
 ```
 ```{r etPy5}
 (etPy5 <- proc.time()-startPyTime)
