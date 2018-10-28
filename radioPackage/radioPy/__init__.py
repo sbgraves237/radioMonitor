@@ -1,1 +1,1 @@
-name = "radioMonitor"
+name = "radioPy"
