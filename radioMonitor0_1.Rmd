@@ -43,9 +43,17 @@ print(cwd.split('\\'))
 startPyTime <- proc.time()
 ```
 ```{python pyaudio1}
-from radioPackage.radioPy import radioMonitor0_1 
-radioMonitor0_1()
+print(cwd.split('\\'))
+
+from radioPackage.radioPy import radioMonitor0_1
+
+radioMonitor0_1.radioMonitor0_1()
 ```
+
+NOTE:  "```{python}" did NOT save "cwd" from one code snippet to the next.  This is unlike R.  
+
+TENTATIVE CONCLUSION:  I should look again at Jupyter Notebooks.  
+
 ```{r etPy5}
 (etPy5 <- proc.time()-startPyTime)
 ```
