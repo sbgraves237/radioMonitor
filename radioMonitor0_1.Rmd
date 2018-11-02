@@ -42,17 +42,24 @@ print(cwd.split('\\'))
 ```{r startTimer}
 startPyTime <- proc.time()
 ```
-```{python pyaudio1}
-print(cwd.split('\\'))
+
+The following returned "ModuleNotFoundError: No module named 'radioPackage':
+
+#```{python pyaudio1}
+import os
+cwd = os.getcwd()
+print(cwd)
 
 from radioPackage.radioPy import radioMonitor0_1
 
 radioMonitor0_1.radioMonitor0_1()
+#```
+
+However, the same script in file "idle0_1.py" was found and executed using a system command from within R: 
+
+```{r sysPy0_1}
+system("py idle0_1.py")
 ```
-
-NOTE:  "```{python}" did NOT save "cwd" from one code snippet to the next.  This is unlike R.  
-
-TENTATIVE CONCLUSION:  I should look again at Jupyter Notebooks.  
 
 ```{r etPy5}
 (etPy5 <- proc.time()-startPyTime)
