@@ -1,0 +1,35 @@
+---
+title: "RMarkdown restarts Python with each snippet"
+author: "Spencer Graves"
+date: "November 2, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+ 
+RMarkdown retains variables between code snippets with R but not with Python.  
+
+Let's first try it in R:  
+
+```{r r1}
+r1 <- 1
+```
+```{r r2}
+print(r1)
+```
+
+Now let's try it in Python:  
+
+```{python p1}
+p1 <- 1
+```
+
+I commented out "print(p1)" in the following snippet, because it generated an error, copied below.  
+```{python p2}
+#print(p1)
+
+```
+
+x Line 26: Error in py_run_string_impl(code, local, convert) : NameError: name 'p1' is not defined Detailed traceback: File "<string>", line 1, in <module> calls:<Anonymous> ... py_capture_output -> force -> py_run_string -> py_run_string_impl Execution halted 
