@@ -28,7 +28,7 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 * 0_6.  Modify the infinite loop of 0_3 to create a file folder for each day and store the *.wav files for that day in that folder.  
 
 
-* 1_0.  Release the version from 0_4 after testing.  
+* 1_0.  Release the version from 0_6 after testing.  
 
 * 2_0.  Modify version 1_0 to record two sources: source and broadcasted.    
 
