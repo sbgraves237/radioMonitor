@@ -45,7 +45,7 @@ startPyTime <- proc.time()
 
 The following returned "ModuleNotFoundError: No module named 'radioPackage':
 
-#```{python pyaudio1}
+###```{python pyaudio1}
 import os
 cwd = os.getcwd()
 print(cwd)
@@ -60,7 +60,8 @@ However, the same script in file "idle0_1.py" was found and executed using a sys
 ```{r sysPy0_1}
 system("py idle0_1.py")
 ```
-
+For 0_2 do:  
+py idle0_2.py
 ```{r etPy5}
 (etPy5 <- proc.time()-startPyTime)
 ```
