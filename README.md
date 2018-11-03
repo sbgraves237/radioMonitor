@@ -17,7 +17,8 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_1.  Record only one *.wav file with a hard coded name, then stop.  Done 2018-10-28.  
 
-* 0_2.  Record only one *.wav file with a name computed from the current date and time, then stop. 
+* 0_2.  Record only one *.wav file with a name computed from the current date and time, then stop. Done 2018-11-02. 
+
 * 0_3.  Record only one *.wav file with a name computed from the current date and time, stopping at the nearest integer multiple of RECORD_SECONDS. The resulting *.wav file will therefore have duration at most RECORD_SECONDS.    
 
 * 0_4.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_3.  
