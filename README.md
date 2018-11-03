@@ -19,16 +19,18 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_2.  Record only one *.wav file with a name computed from the current date and time, then stop. Done 2018-11-02. 
 
-* 0_3.  Record only one *.wav file with a name computed from the current date and time, stopping at the nearest integer multiple of RECORD_SECONDS. The resulting *.wav file will therefore have duration at most RECORD_SECONDS.    
+* 0_3.  Same as "0_2", but use "while datetime.now() <= endTime:" rather than "for i in range(...):".  Done 2018-11-03.  
 
-* 0_4.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_3.  
+* 0_4.  Record only one *.wav file with a name computed from the current date and time, stopping at the nearest integer multiple of RECORD_SECONDS. The resulting *.wav file will therefore have duration at most RECORD_SECONDS.    
 
-* 0_5.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_4, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_4.  
+* 0_5.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_4.  
 
-* 0_6.  Modify the infinite loop of 0_3 to create a file folder for each day and store the *.wav files for that day in that folder.  
+* 0_6.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_5, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_5.  
+
+* 0_7.  Modify the infinite loop of 0_6 to create a file folder for each day and store the *.wav files for that day in that folder.  
 
 
-* 1_0.  Release the version from 0_6 after testing.  
+* 1_0.  Release the version from 0_7 after testing.  
 
 * 2_0.  Modify version 1_0 to record two sources: source and broadcasted.    
 
