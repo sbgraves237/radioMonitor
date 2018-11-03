@@ -15,13 +15,16 @@ PLAN:
 
 NOTE:  This will likely be implemented in a series of upgrades as outlined in "radioMonitor/README.md" in the "radioMonitor" subfolder of this project folder.  The initial step would be radioMonitor0_1.Rmd that calls  a function radioMonitor0_1.py that creates a single *.wav file.  This would be followed by 0_2, 0_3, 0_4, leading to 1_0, which would create daily folders of individual files, then by 2_0, 2_1, and 2_2 that would create similar folders with files of input, output, and difference plus summary folders of questionable incidents with Fast Fourier Transforms of the signal before, during and after an apparent drop out.  
 
-* 0_1.  Record only one *.wav file, then stop.  
+* 0_1.  Record only one *.wav file with a hard coded name, then stop.  Done 2018-10-28.  
 
-* 0_2.  From the start time, compute the end time as the next integer multiple of RECORD_SECONDS, construct a file name containing the start time, then record to the end time, then stop.  
+* 0_2.  Record only one *.wav file with a name computed from the current date and time, then stop. 
+* 0_3.  Record only one *.wav file with a name computed from the current date and time, stopping at the nearest whole multiple of RECORD_SECONDS.  
 
-* 0_3.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_._2.  
+* 0_4.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_3.  
 
-* 0_4.  Modify the infinite loop of 0_3 to create a file folder for each day and store the *.wav files for that day in that folder.  
+* 0_5.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_4, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_4.  
+
+* 0_6.  Modify the infinite loop of 0_3 to create a file folder for each day and store the *.wav files for that day in that folder.  
 
 * 1_0.  Release the version from 0_4 after testing.  
 
