@@ -27,7 +27,7 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_6.  Put the log files in a folder with a name constructed from "source" followed by the date;  create the folder if it does not already exist.  Done:  2018-11-04.  
 
-* 0_7.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_6.  
+* 0_7.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_6.  Done: 2018-11-04.
 
 * 0_8.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_7, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_7.  
 
