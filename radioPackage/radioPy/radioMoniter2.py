@@ -1,4 +1,8 @@
 # radioMonitor2.py 2018-10-24
+#
+# CANNOT USE AS IS 
+# BUT MAY HOLD THE KEY TO CREATING 
+# mp3 and ogg files, not just wav
 
 from pydub import AudioSegment
 from pydub.utils import make_chunks
