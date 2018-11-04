@@ -1,6 +1,8 @@
 # radioMonitor
 Monitor radio broadcast quality
 
+2018-11-04.  This is alpha version 0.9.  This is copyrighted 2018 by Spencer Graves, free for noncommercial use.  See "radioPackage/LICENSE" for more information.  
+
 2018-10-11:  Initiate project with a vision of code to monitor in real time a stream from a radio tuner and compile reports to support identification and diagnosis of problems with broadcast quality.  
 
 PLAN:  
@@ -29,11 +31,13 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_7.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_6.  Done: 2018-11-04.
 
-* 0_8.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_7, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_7.  
+* 0_8.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_7, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_7.  Done:  2018-11-04.  
 
-* 0_9.  Make the default RECORD_MINUTES=60.  
+* 0_9.  Make the default RECORD_MINUTES=60.  Done:  2018-11-04.  
 
-* 0_10.  Change copyright to a standard software license that's free for noncommercial uses with a def
+* 0_10.  Create a maximum number of days to record.  
+
+* 0_11.  Change copyright to a standard software license that's free for noncommercial uses copying some standard license of this nature.  
 
 
 * 1_0.  Release the version from 0_10 after testing.  
