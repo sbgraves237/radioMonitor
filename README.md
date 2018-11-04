@@ -23,13 +23,15 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_4.  Record only one *.wav file with a name computed from the current date and time, stopping at the nearest integer multiple of RECORD_SECONDS. The resulting *.wav file will therefore have duration at most RECORD_SECONDS.  (Drop the "-5sec" characters from the file name.) Done:  2018-11-03.
 
-* 0_5.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_4.  
+* 0_5.  test_mkdir.py: Test for the existence of a directory and create if it does not exist.  
 
-* 0_6.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_5, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_5.  
+* 0_6.  Put the log files in a folder with a name constructed from "source" followed by the date;  create the folder if it does not already exist.  
 
-* 0_7.  Modify the infinite loop of 0_6 to create a file folder for each day and store the *.wav files for that day in that folder.  
+* 0_7.  Put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_5.  
 
-* 0_8.  Change copyright to a standard software license that's free for noncommercial uses.  
+* 0_8.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_6, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_6.  
+
+* 0_9.  Change copyright to a standard software license that's free for noncommercial uses.  
 
 
 * 1_0.  Release the version from 0_7 after testing.  
