@@ -29,6 +29,8 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_7.  Modify the infinite loop of 0_6 to create a file folder for each day and store the *.wav files for that day in that folder.  
 
+* 0_8.  Change copyright to a standard software license that's free for noncommercial uses.  
+
 
 * 1_0.  Release the version from 0_7 after testing.  
 
