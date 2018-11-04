@@ -31,10 +31,12 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_8.  Replace RECORD_SECONDS with RECORD_MINUTES in 0_7, make the other obvious corresponding adjustments, and put the recording in an infinite loop to write a series of *.wav files with names constructed as with version 0_7.  
 
-* 0_9.  Change copyright to a standard software license that's free for noncommercial uses.  
+* 0_9.  Make the default RECORD_MINUTES=60.  
+
+* 0_10.  Change copyright to a standard software license that's free for noncommercial uses with a def
 
 
-* 1_0.  Release the version from 0_9 after testing.  
+* 1_0.  Release the version from 0_10 after testing.  
 
 * 2_0.  Modify version 1_0 to record two sources: source and broadcasted.    
 
