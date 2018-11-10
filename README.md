@@ -35,6 +35,12 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_9.  Make the default RECORD_MINUTES=60.  Done:  2018-11-04.  
 
+NOTES:  
+
+*** 1-minute files seemed to all come out 59 seconds. A 60-minute file came out 59:31.  Then I changed to 30 minutes.  Fourty-eight 30-minute files were recorded for 2018-11-04.  These ranged from 29:12 to 29:56 (mm:ss), averaging 29:48.96 (mm:ss) with a standard deviation of 12.11 sec.  This was under Windows 7 on a 4-core HP Pavilion with 4 GB RAM.  This inner core iteration should probably be written so nothing gets lost ... later.  
+
+*** Change the default RECORD_MINUTES to 20.  
+
 * 0_10.  Write function "mk_source_dir" to find all the directories with initial characters matching "source" and delete the oldest with all its contents when the number of such directories reaches "max_days", then create a new directory (source + date_string).  
 
 * 0_11.  Log files in directories by day as with 0_9, except use "mk_source_dir" to limit the number of such directories to "max_days".  
@@ -49,6 +55,8 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 * 2_1.  Modify version 2.0 to determine the time synchronization, then compute the difference and write three files:  source, broadcasted and difference.    
 
 * 2_2.  Modify version 2.1 to identify problems in the difference.  
+
+* 2_3.  Rewrite the inner core iteration, so it doesn't drop on average 11.04 seconds from every 30-minute segment.  
  
 4.  Start regular use of radioMonitor1.py, reprting to KKFI's EFT Committee, inviting their suggestions on how to use this and how to enhance it:  First, if we can identify specific times of specific skips, we can then find the corresponding files, read them into Audacity, see what the wave form looks like at the specific time. We can document that in greater detail, report it to the EFT Committee and Una Nowling.  Mike Murphy can share the result with KKFI's radio engineers, Ed Treese and Mike Rogers and get their input regarding the kind of spectrum they would like to see from such events.  I may also share it with a local Python Meetup plus "python-list@python.org" for help with things I don't yet know how to do plus "r-help@r-project.org" to search for a way to do this in R that I may have overlooked.  If any work in this area is done in R or Python, document that in an R Markdown Document with a name like "radioMonitor1a*.Rmd".
 
