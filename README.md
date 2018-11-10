@@ -35,9 +35,11 @@ NOTE:  This will likely be implemented in a series of upgrades as outlined in "r
 
 * 0_9.  Make the default RECORD_MINUTES=60.  Done:  2018-11-04.  
 
-* 0_10.  Create a maximum number of days to record.  
+* 0_10.  Write function "mk_source_dir" to find all the directories with initial characters matching "source" and delete the oldest with all its contents when the number of such directories reaches "max_days", then create a new directory (source + date_string).  
 
-* 0_11.  Change copyright to a standard software license that's free for noncommercial uses copying some standard license of this nature.  
+* 0_11.  Log files in directories by day as with 0_9, except use "mk_source_dir" to limit the number of such directories to "max_days".  
+
+* 0_12.  Change copyright to a standard software license that's free for noncommercial uses copying some standard license of this nature.  
 
 
 * 1_0.  Release the version from 0_10 after testing.  
