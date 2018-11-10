@@ -103,7 +103,6 @@ def radioMonitor0_8(
                 input=True,
                 frames_per_buffer=CHUNK)
                 
-
   print("* recording")
 
   frames = []
